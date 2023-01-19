@@ -1,13 +1,14 @@
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class UserDaoJDBCImpl implements UserDao {
-    private Connection connection = jm.task.core.jdbc.util.Util.getConnection();
+    private Connection connection = Util.getConnection();
 
     public UserDaoJDBCImpl() {
     }
@@ -87,7 +88,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 user.setAge((byte) resultSet.getInt("age"));
                 userList.add(user);
             }
-            connection.commit();
+            //connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
